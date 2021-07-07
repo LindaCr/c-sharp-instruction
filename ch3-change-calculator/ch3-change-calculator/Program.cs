@@ -31,7 +31,7 @@ namespace ch3_change_calculator
 				Console.WriteLine("Pennies: " + remainder);
 
 				Console.WriteLine("\nContinue? (y/n)? ");
-				choice = Console.ReadLine();
+				choice = Console.ReadLine().ToLower();
 			}
 
 			Console.WriteLine();
