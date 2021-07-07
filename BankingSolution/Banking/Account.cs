@@ -6,10 +6,23 @@ namespace Banking
 {
     class Account
     {
-        public int Id { get; set; }
+
+        private static int NextId = 1;
+        public int Id { get; protected set; }
         public string Description { get; set; }
         public decimal Balance { get; private set; } = 0;
 
+        public Account()
+        {
+            Id = NextId++;
+        }
+
+
+        public static void Transfer(decimal Amount, Account FromAccount, Account ToAccount)
+        {
+            FromAccount.Withdraw(Amount);
+            ToAccount.Deposit(Amount);
+        }
 
         public void Deposit(decimal Amount)
         {
@@ -20,7 +33,7 @@ namespace Banking
             Balance += Amount;
         }
 
-        public void Withdraw(decimal Amount)
+        public virtual void Withdraw(decimal Amount)
         {
             if (Amount <= 0)
             {
