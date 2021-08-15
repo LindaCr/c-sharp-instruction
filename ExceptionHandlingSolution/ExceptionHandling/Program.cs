@@ -15,7 +15,7 @@ namespace ExceptionHandling
                 Console.WriteLine("Continue? y/n");
             } while (Console.ReadLine().ToLower() == "y");
 
-
+            Console.WriteLine("Peace!");
 
         }
     }
